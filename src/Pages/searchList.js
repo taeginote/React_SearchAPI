@@ -38,7 +38,6 @@ const Div = styled.div`
 	width: 528px;
 	display: flex;
 	align-items: flex-end;
-	border: 1px solid white;
 	background-color: white;
 	padding: 20px 0;
 	font-weight: bold;

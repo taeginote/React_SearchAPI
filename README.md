@@ -8,11 +8,11 @@
 
 ### **기본 화면**
 
-<img width="1022" alt="스크린샷 2023-04-03 오전 12 59 30" src="https://user-images.githubusercontent.com/103398790/229417212-f068668f-791c-4abd-b5e5-7434b24f6758.png">
+<img width="1116" alt="스크린샷 2023-06-21 오후 9 27 48" src="https://github.com/taeginote/React_SearchAPI/assets/103398790/9732e9e4-6e45-4d83-acb6-d46e1298153f">
 
 ### **검색 화면**
 
-<img width="1022" alt="스크린샷 2023-04-03 오전 1 00 05" src="https://user-images.githubusercontent.com/103398790/229417332-dc90a8a8-1892-474f-899f-90186950d491.png">
+<img width="1116" alt="스크린샷 2023-06-21 오후 9 29 39" src="https://github.com/taeginote/React_SearchAPI/assets/103398790/42df962c-e8e8-4493-80f9-a8a2147b869a">
 
  <br>
  

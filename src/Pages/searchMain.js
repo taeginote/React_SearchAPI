@@ -10,7 +10,7 @@ function SearchMain() {
 	const [recent, setRecent] = useState([])
 	const [focusInx, setFocusInx] = useState(-1)
 
-	const debounceVal = useDeBounce(input)
+	let debounceVal = useDeBounce(input)
 
 	const getData = async () => {
 		try {
@@ -92,14 +92,16 @@ function SearchMain() {
 	return (
 		<S.Div>
 			<S.Search>
-				<S.Input
-					onChange={searchInput}
-					onKeyDown={onkeyDown}
-					value={list[focusInx]}
-					placeholder={'무엇이든 검색해보살 :)'}
-				/>
-				<S.Button1 onClick={onSearchBtn}>검색</S.Button1>
-
+				<S.Title>Search.</S.Title>
+				<S.InputWrapper>
+					<S.Input
+						onChange={searchInput}
+						onKeyDown={onkeyDown}
+						value={list.length !== 0 ? list[focusInx] : ''}
+						placeholder={'무엇이든 검색해보살 :)'}
+					/>
+					<S.Button1 onClick={onSearchBtn}>검색</S.Button1>
+				</S.InputWrapper>
 				{debounceVal.length === 0 && recent ? (
 					<RecentList recent={recent} setRecent={setRecent} />
 				) : (
@@ -117,7 +119,7 @@ const Div = styled.div`
 	flex-direction: column;
 	align-items: center;
 	padding-top: 100px;
-	background-color: #505050;
+	background-color: #ebe9eb;
 	border: none;
 	height: 2000px;
 `
@@ -126,24 +128,28 @@ const Input = styled.input`
 	font-size: 18px;
 	text-align: left;
 	font-weight: bold;
-	border-radius: 20px 20px 0 0;
+	border-radius: 20px;
 	border: 1px solid white;
 	position: relative;
+	margin: 30px 0 20px 0;
+	border: 2px dashed gray;
 	:focus {
+		border: 2px dashed gray;
 		outline: none;
-		border-radius: 20px 20px 0 0;
 	}
 `
 
 const Search = styled.button`
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	margin: 0;
 	padding: 0;
 	border: none;
-	border-bottom: 1px solid gray;
-	background-color: #505050;
+	border: 3px solid #121219;
+	background-color: white;
+	border-radius: 10px;
+	padding: 0 30px;
+	box-shadow: 10px 10px 0px #45c397;
 `
 const Button1 = styled.button`
 	font-size: 20px;
@@ -152,17 +158,28 @@ const Button1 = styled.button`
 	border: none;
 	cursor: pointer;
 	position: absolute;
-	right: 600px;
-	top: 117px;
+	top: 40px;
+	right: 10px;
 	border: none;
 	background-color: white;
 	:hover {
 		color: gray;
 	}
 `
+const Title = styled.div`
+	font-size: 30px;
+	font-weight: bold;
+	margin: 30px 0 0 0;
+	text-align: start;
+`
+const InputWrapper = styled.div`
+	position: relative;
+`
 const S = {
 	Div,
 	Input,
 	Search,
 	Button1,
+	Title,
+	InputWrapper,
 }

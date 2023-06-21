@@ -24,17 +24,17 @@ export default RecentList
 
 const Ul = styled.div`
 	border: 1px solid white;
-	border-top: 1px solid gray;
 	border-radius: 0 0 20px 20px;
 	background-color: white;
+	margin-bottom: 20px;
 `
 const Div = styled.div`
-	width: 528px;
+	width: 550px;
 	display: flex;
 	align-items: flex-end;
 	border: 1px solid white;
 	background-color: white;
-	padding: 5px 0 5px 20px;
+	padding: 5px 0 5px 0;
 	font-weight: bold;
 	justify-content: space-between;
 	font-size: 18px;
@@ -46,7 +46,7 @@ const Li = styled.div`
 	text-align: left;
 	opacity: 0.7;
 	width: 528px;
-	padding: 5px 0 5px 20px;
+	padding: 5px 0 5px 0;
 	:last-child {
 		border-radius: 0 0 20px 20px;
 		border: 1px solid white;
