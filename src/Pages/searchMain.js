@@ -2,15 +2,12 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import List from './searchList'
-import useDeBounce from '../CustomHooks/useDebounce'
 import RecentList from '../Pages/recentList'
 function SearchMain() {
 	const [list, setList] = useState([])
 	const [input, setInput] = useState('')
 	const [recent, setRecent] = useState([])
 	const [focusInx, setFocusInx] = useState(-1)
-
-	let debounceVal = useDeBounce(input)
 
 	const getData = async () => {
 		try {
@@ -38,6 +35,7 @@ function SearchMain() {
 		localStorage.setItem('recent', JSON.stringify(recent))
 		const arr = JSON.parse(localStorage.getItem('recent'))
 
+		//input은 input값, arr은 로컬스토리지에 저장한 최근검색어 배열[]이다
 		if (arr.find(el => el === input)) {
 			let overlapArr = arr.filter(el => el !== input)
 			return (
@@ -46,6 +44,7 @@ function SearchMain() {
 				localStorage.setItem('recent', JSON.stringify(overlapArr))
 			)
 		}
+
 		arr.unshift(input)
 		if (arr.length === 6) {
 			arr.pop()
@@ -97,7 +96,7 @@ function SearchMain() {
 					<S.Input
 						onChange={searchInput}
 						onKeyDown={onkeyDown}
-						value={list.length !== 0 ? list[focusInx] : ''}
+						value={list.length !== 0 ? list[focusInx] : input}
 						placeholder={'무엇이든 검색해보살 :)'}
 					/>
 					<S.Button1 onClick={onSearchBtn}>검색</S.Button1>
